@@ -1,0 +1,240 @@
+{
+  "_version": "1.48.0",
+  "sap.app": {
+    "id": "rovensa.soplan",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.14.1",
+      "toolsId": "872273df-2f23-4a49-8bf6-2f931cccbfae"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZUI_SD_SO_PLAN/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "ZUI_SD_SO_PLAN_VAN",
+            "annotation"
+          ],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZUI_SD_SO_PLAN_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZUI_SD_SO_PLAN_VAN',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/ZUI_SD_SO_PLAN_VAN.xml"
+        }
+      },
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.108.33",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.f": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.suite.ui.generic.template": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "rovensa.soplan.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "custom": {
+        "dataSource": "mainService",
+        "preload": false,
+        "settings": {
+            "defaultBindingMode": "OneWay",
+            "defaultCountMode": "Inline",
+            "refreshAfterChange": false,
+            "metadataUrlParams": {
+                "sap-value-list": "none"
+            }
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [],
+      "targets": {}
+    },
+    "extends": {
+        "extensions": {
+            "sap.ui.controllerExtensions": {
+                "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+                    "controllerName": "rovensa.soplan.ext.controller.ListReportExt",
+                    "sap.ui.generic.app": {
+                        "Planning": {
+                            "EntitySet": "Planning",
+                            "Actions": {
+                                "DisplayMessages": {
+                                    "id": "DisplayMessagesButton",
+                                    "text": "{i18n>messages}",
+                                    "press": "DisplayMessages",
+                                    "requiresSelection": false
+                                },
+                                "FileUpload": {
+                                    "id": "FileUploadButton",
+                                    "text": "{i18n>upload}",
+                                    "press": "FileUpload",
+                                    "requiresSelection": false
+                                },
+                                "DownloadTemplate": {
+                                    "id": "DownloadTemplateButton",
+                                    "text": "{i18n>template}",
+                                    "press": "DownloadTemplate",
+                                    "requiresSelection": false
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+  },
+  "sap.ui.generic.app": {
+    "_version": "1.3.0",
+    "settings": {
+      "forceGlobalRefresh": false,
+      "objectPageHeaderType": "Dynamic",
+      "considerAnalyticalParameters": true,
+      "showDraftToggle": false,
+      "flexibleColumnLayout": {
+        "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
+        "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+      }
+    },
+    "pages": {
+      "ListReport|Planning": {
+        "entitySet": "Planning",
+        "component": {
+          "name": "sap.suite.ui.generic.template.ListReport",
+          "list": true,
+          "settings": {
+            "smartVariantManagement": true,
+            "enableTableFilterInPageVariant": true,
+            "filterSettings": {
+              "dateSettings": {
+                "useDateRange": true
+              }
+            },
+            "tableSettings": {
+              "type": "ResponsiveTable",
+              "multiEdit": {
+                "enabled": true
+              },
+              "multiSelect": true,
+              "selectAll": true,
+              "widthIncludingColumnHeader": false
+            },
+            "quickVariantSelection": {
+              "showCounts": true,
+              "variants": {
+                "0": {
+                  "key": "_tab1",
+                  "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#Open"
+                  },
+                "1": {
+                  "key": "_tab2",
+                  "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#Completed"
+                },
+                "2": {
+                  "key": "_tab3",
+                  "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#All"
+                }
+              }
+            }
+          }
+        },
+        "pages": {
+          "ObjectPage|Planning": {
+            "entitySet": "Planning",
+            "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+            "component": {
+              "name": "sap.suite.ui.generic.template.ObjectPage"
+            },
+            "pages": {
+              "ObjectPage|to_ChangeDocuments": {
+                "navigationProperty": "to_ChangeDocuments",
+                "entitySet": "ChangeDocuments",
+                "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+                "component": {
+                  "name": "sap.suite.ui.generic.template.ObjectPage"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}
