@@ -186,7 +186,9 @@
             "tableSettings": {
               "type": "ResponsiveTable",
               "multiEdit": {
-                "enabled": true
+                "enabled": true,
+                "annotationPath": "com.sap.vocabularies.UI.v1.FieldGroup#MultiEdit",
+                "ignoredFields":"LoadingTime" 
               },
               "multiSelect": true,
               "selectAll": true,

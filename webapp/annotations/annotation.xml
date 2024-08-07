@@ -14,6 +14,44 @@
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
             <Annotations Target="cds_zui_sd_so_plan.PlanningType">
+                <Annotation Term="UI.FieldGroup" Qualifier="MultiEdit">
+                    <Record>
+                        <PropertyValue Property="Data">
+                                <Collection>
+                                    <Record Type="UI.DataField">
+                                        <PropertyValue Property="Value" Path="ExpectedAvailDate"/>
+                                    </Record>
+                                    <Record Type="UI.DataField">
+                                        <PropertyValue Property="Value" Path="JustExpectedAvailDate"/>
+                                    </Record>
+                                    <Record Type="UI.DataField">
+                                        <PropertyValue Property="Value" Path="StockAvailDate"/>
+                                    </Record>
+                                    <Record Type="UI.DataField">
+                                        <PropertyValue Property="Value" Path="JustStockAvailDate"/>
+                                    </Record>
+                                    <Record Type="UI.DataField">
+                                        <PropertyValue Property="Value" Path="LoadingDate"/>
+                                    </Record>
+                                    <Record Type="UI.DataField">
+                                        <PropertyValue Property="Value" Path="JustLoadingDate"/>
+                                    </Record>
+                                    <Record Type="UI.DataField">
+                                        <PropertyValue Property="Value" Path="MinDeliveryDate"/>
+                                    </Record>
+                                    <Record Type="UI.DataField">
+                                        <PropertyValue Property="Value" Path="JustMinDeliveryDate"/>
+                                    </Record>
+                                    <Record Type="UI.DataField">
+                                        <PropertyValue Property="Value" Path="MaxDeliveryDate"/>
+                                    </Record>
+                                    <Record Type="UI.DataField">
+                                        <PropertyValue Property="Value" Path="JustMaxDeliveryDate"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                    </Record>
+                </Annotation>
                 <Annotation Term="UI.HeaderFacets">
                     <Collection>
                         <Record Type="UI.ReferenceFacet">
