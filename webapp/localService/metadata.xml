@@ -279,7 +279,7 @@
                     <PropertyRef Name="SalesOrder"/>
                     <PropertyRef Name="SalesOrderItem"/>
                 </Key>
-                <Property Name="dismissAlert_ac" Type="Edm.Boolean" sap:label="Ctrl.ação dinâmica" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="cockpitReady_ac" Type="Edm.Boolean" sap:label="Ctrl.ação dinâmica" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ExpectedAvailDate_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="JustExpectedAvailDate_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="JustLoadingDate_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -308,12 +308,16 @@
                 <Property Name="DeliveryBlockReasonText" Type="Edm.String" MaxLength="20" sap:label="Delivery Block Description" sap:quickinfo="Descrição" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="IncotermsClassification" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Incoterms" sap:quickinfo="Incoterms parte 1" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="TotalCreditCheckStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Credit Check Status" sap:quickinfo="Status global das verificações de crédito" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="TotalCreditCheckStatusDesc" Type="Edm.String" MaxLength="20" sap:label="Credit Check Status Description" sap:quickinfo="Descrição do status"/>
                 <Property Name="TotalDeliveryStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Delivery Status" sap:quickinfo="Status global da remessa (item)" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="TotalDeliveryStatusDesc" Type="Edm.String" MaxLength="20" sap:label="Delivery Status Description" sap:quickinfo="Descrição do status"/>
                 <Property Name="CommittedDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Committed Delivery Date" sap:quickinfo="Data da remessa com a qual o fornecedor se comprometeu" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="FirstDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="First Date"/>
+                <Property Name="FirstDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="First Date" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="PlanningIsValid" Type="Edm.String" MaxLength="1" sap:display-format="NonNegative" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="LoadingDateChangeStatus" Type="Edm.String" MaxLength="1" sap:display-format="NonNegative"/>
+                <Property Name="StockAvailDateChanged" Type="Edm.String" MaxLength="1" sap:display-format="NonNegative"/>
+                <Property Name="LoadingDateChanged" Type="Edm.String" MaxLength="1" sap:display-format="NonNegative"/>
                 <Property Name="PlanningStatusText" Type="Edm.String" MaxLength="38" sap:label="Planning Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OutboundDelivery" Type="Edm.String" MaxLength="10" sap:label="Delivery"/>
                 <Property Name="PurchaseOrder" Type="Edm.String" MaxLength="35" sap:label="Referência cliente" sap:quickinfo="Referência do cliente" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="OriginalSalesOrder" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Original Sales Order" sap:quickinfo="Nº documento de vendas e distribuição (SD)" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="OriginalPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Original Plant" sap:quickinfo="Centro (próprio ou externo)" sap:creatable="false" sap:updatable="false"/>
@@ -324,15 +328,16 @@
                 <Property Name="MinDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="MinDeliveryDate_fc" sap:label="Min. Arrival Date" sap:quickinfo="Data de entrega"/>
                 <Property Name="MaxDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="MaxDeliveryDate_fc" sap:label="Max. Arrival Date" sap:quickinfo="Data fim entrega"/>
                 <Property Name="JustExpectedAvailDate" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:field-control="JustExpectedAvailDate_fc" sap:label="Just. Request Finish Date" sap:quickinfo="Justification of change - Expected Avail. date" sap:value-list="standard"/>
-                <Property Name="JustExpectedAvailDateT" Type="Edm.String" MaxLength="50" sap:label="Just. Request Finish Date" sap:quickinfo="Sales Order Planning - Justification description"/>
+                <Property Name="JustExpectedAvailDateT" Type="Edm.String" MaxLength="50" sap:label="Just. Request Finish Date Desc." sap:quickinfo="Sales Order Planning - Justification description"/>
                 <Property Name="JustStockAvailDate" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:field-control="JustStockAvailDate_fc" sap:label="Just. Final Finish Date" sap:quickinfo="Justification of change - Stock Avail. Date" sap:value-list="standard"/>
-                <Property Name="JustStockAvailDateT" Type="Edm.String" MaxLength="50" sap:label="Just. Final Finish Date" sap:quickinfo="Sales Order Planning - Justification description"/>
+                <Property Name="JustStockAvailDateT" Type="Edm.String" MaxLength="50" sap:label="Just. Final Finish Date Desc." sap:quickinfo="Sales Order Planning - Justification description"/>
                 <Property Name="JustLoadingDate" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:field-control="JustLoadingDate_fc" sap:label="Just. Expected Loading Date" sap:quickinfo="Justification of change - Loading Date" sap:value-list="standard"/>
-                <Property Name="JustLoadingDateT" Type="Edm.String" MaxLength="50" sap:label="Just. Expected Loading Date" sap:quickinfo="Sales Order Planning - Justification description"/>
-                <Property Name="JustMinDeliveryDate" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:field-control="JustMinDeliveryDate_fc" sap:label="Just. Min. Delivery Date" sap:quickinfo="Justification of change - Min. Delivery Date" sap:value-list="standard"/>
-                <Property Name="JustMinDeliveryDateT" Type="Edm.String" MaxLength="50" sap:label="Just. Min. Delivery Date" sap:quickinfo="Sales Order Planning - Justification description"/>
-                <Property Name="JustMaxDeliveryDate" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:field-control="JustMaxDeliveryDate_fc" sap:label="Just. Max. Delivery Date" sap:quickinfo="Justification of change - Max. Delivery Date" sap:value-list="standard"/>
-                <Property Name="JustMaxDeliveryDateT" Type="Edm.String" MaxLength="50" sap:label="Just. Max. Delivery Date" sap:quickinfo="Sales Order Planning - Justification description"/>
+                <Property Name="JustLoadingDateT" Type="Edm.String" MaxLength="50" sap:label="Just. Expected Loading Date Desc." sap:quickinfo="Sales Order Planning - Justification description"/>
+                <Property Name="JustMinDeliveryDate" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:field-control="JustMinDeliveryDate_fc" sap:label="Just. Min. Arrival Date" sap:quickinfo="Justification of change - Min. Delivery Date" sap:value-list="standard"/>
+                <Property Name="JustMinDeliveryDateT" Type="Edm.String" MaxLength="50" sap:label="Just. Min. Arrival Date Desc." sap:quickinfo="Sales Order Planning - Justification description"/>
+                <Property Name="JustMaxDeliveryDate" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:field-control="JustMaxDeliveryDate_fc" sap:label="Just. Max. Arrival Date" sap:quickinfo="Justification of change - Max. Delivery Date" sap:value-list="standard"/>
+                <Property Name="JustMaxDeliveryDateT" Type="Edm.String" MaxLength="50" sap:label="Just. Max. Arrival Date Desc." sap:quickinfo="Sales Order Planning - Justification description"/>
+                <Property Name="CockpitReady" Type="Edm.String" MaxLength="3" sap:label="Cockpit Ready" sap:quickinfo="Sales Order Planning - Cockpit Ready" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Criado por" sap:quickinfo="Nome do responsável que criou o objeto" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Criado em" sap:quickinfo="Criado em - Timestamp" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Modificado por" sap:quickinfo="Nome do responsável pela modificação do objeto" sap:creatable="false" sap:updatable="false"/>
@@ -410,8 +415,9 @@
                 <Property Name="ChangeNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Nº documento" sap:quickinfo="Nº modificação do documento"/>
                 <Property Name="TableName" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Nome da tabela"/>
                 <Property Name="RecordKey" Type="Edm.String" Nullable="false" MaxLength="70" sap:display-format="UpperCase" sap:label="Chave de tabela" sap:quickinfo="Chave da linha de tabela modificada"/>
-                <Property Name="FieldName" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Field Name" sap:quickinfo="Nome do campo"/>
+                <Property Name="FieldName" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Nome do campo"/>
                 <Property Name="ChangeIndicator" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="Código modificação" sap:quickinfo="Tipo da modificação"/>
+                <Property Name="FieldDescription" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Field Name/Description" sap:quickinfo="Nome do campo"/>
                 <Property Name="ChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Changed By" sap:quickinfo="Nome usuário que modificou documento de modificação"/>
                 <Property Name="ChangedAt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Changed At" sap:quickinfo="Data de criação do documento de modificação"/>
                 <Property Name="OldVAlue" Type="Edm.String" MaxLength="254" sap:display-format="UpperCase" sap:label="Old Value" sap:quickinfo="Conteúdo antigo do campo modificado"/>
@@ -696,7 +702,7 @@
                     <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_coverpage"/>
                     <End EntitySet="SAP__CoverPageSet" Role="ToRole_to_coverpage"/>
                 </AssociationSet>
-                <FunctionImport Name="dismissAlert" ReturnType="cds_zui_sd_so_plan.PlanningType" EntitySet="Planning" m:HttpMethod="POST" sap:action-for="cds_zui_sd_so_plan.PlanningType" sap:applicable-path="dismissAlert_ac">
+                <FunctionImport Name="cockpitReady" ReturnType="cds_zui_sd_so_plan.PlanningType" EntitySet="Planning" m:HttpMethod="POST" sap:action-for="cds_zui_sd_so_plan.PlanningType" sap:applicable-path="cockpitReady_ac">
                     <Parameter Name="SalesOrder" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Documento de vendas"/>
                     <Parameter Name="SalesOrderItem" Type="Edm.String" Mode="In" MaxLength="6" sap:label="Item"/>
                 </FunctionImport>
@@ -1903,7 +1909,7 @@
                     <Record>
                         <PropertyValue Property="NonFilterableProperties">
                             <Collection>
-                                <PropertyPath>dismissAlert_ac</PropertyPath>
+                                <PropertyPath>cockpitReady_ac</PropertyPath>
                                 <PropertyPath>ExpectedAvailDate_fc</PropertyPath>
                                 <PropertyPath>JustExpectedAvailDate_fc</PropertyPath>
                                 <PropertyPath>JustLoadingDate_fc</PropertyPath>
@@ -1962,7 +1968,7 @@
                     <Record>
                         <PropertyValue Property="NonSortableProperties">
                             <Collection>
-                                <PropertyPath>dismissAlert_ac</PropertyPath>
+                                <PropertyPath>cockpitReady_ac</PropertyPath>
                                 <PropertyPath>ExpectedAvailDate_fc</PropertyPath>
                                 <PropertyPath>JustExpectedAvailDate_fc</PropertyPath>
                                 <PropertyPath>JustLoadingDate_fc</PropertyPath>

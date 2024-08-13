@@ -114,8 +114,6 @@ sap.ui.define([
 
             var aSalesOrderItems = [];
 
-            var bMessageSet = false;
-
             aData.forEach(entity => {
 
                 if(entity.ExpectedAvailDate === undefined){
@@ -139,10 +137,15 @@ sap.ui.define([
                 if(entity.LoadingTime === undefined){
                     //entity.LoadingTime = "";
                 }else{
-                    let text = entity.LoadingTime.toString();
-                    const myArr = text.split(":");
+                    let str = entity.LoadingTime.toString();
+                    let matches = str.replace(/[^0-9:]/g, "");
+                    const myArr = matches.split(":");
                     if(myArr.length === 3){
                         entity.LoadingTime = "PT"+myArr[0]+"H"+myArr[1]+"M"+myArr[2]+"S";
+                    }else if(myArr.length === 2){
+                        entity.LoadingTime = "PT"+myArr[0]+"H"+myArr[1]+"M00S";
+                    }else{
+                        entity.LoadingTime = "PT00H00M00S";
                     }
                 }
 
@@ -166,21 +169,20 @@ sap.ui.define([
                                         LoadingTime: entity.LoadingTime,
                                         MinDeliveryDate: entity.MinDeliveryDate,
                                         MaxDeliveryDate: entity.MaxDeliveryDate,
-                                        JustExpectedAvailDate: entity.JustExpectedAvailDate,
-                                        JustStockAvailDate: entity.JustStockAvailDate,
-                                        JustLoadingDate: entity.JustLoadingDate,
-                                        JustMinDeliveryDate: entity.JustMinDeliveryDate,
-                                        JustMaxDeliveryDate: entity.JustMaxDeliveryDate,
+                                        JustExpectedAvailDate: that._addLeadingZero(entity.JustExpectedAvailDate),
+                                        JustStockAvailDate: that._addLeadingZero(entity.JustStockAvailDate),
+                                        JustLoadingDate: that._addLeadingZero(entity.JustLoadingDate),
+                                        JustMinDeliveryDate: that._addLeadingZero(entity.JustMinDeliveryDate),
+                                        JustMaxDeliveryDate: that._addLeadingZero(entity.JustMaxDeliveryDate)
                                      };
                 
                 aSalesOrderItems.push(oSalesOrderItem);
 
             });
 
-            if( aSalesOrderItems.length > 0 && bMessageSet === false){
+            if( aSalesOrderItems.length > 0){
                 //TODO: i18n
                 this._setCustomMessage("Planning is being updated", "I");
-                bMessageSet = true;
             }
 
             aSalesOrderItems.forEach(entity => {
@@ -202,7 +204,8 @@ sap.ui.define([
                     error: function(err){
 
                         return;
-
+                        
+                        /*
                         let sMessage = "An unexpected error occurred";
 
                         if(!err.responseText){
@@ -218,6 +221,7 @@ sap.ui.define([
                             that.addMessage(sMessage, "E");
 
                         }
+                        */
 
                     }
                 });
@@ -319,6 +323,30 @@ sap.ui.define([
             XLSX.utils.book_append_sheet(workbook, worksheet, "Planning");     
 
             XLSX.writeFile(workbook, "PlanningTemplate.xlsx", { compression: true });
+
+        },
+
+        _addLeadingZero: function(sValue) {
+
+            if (sValue === undefined) {
+                return;
+            }
+
+            let sValueNew = sValue; 
+
+            const regex = new RegExp('[0-9]');
+
+            try {
+              
+                if(sValueNew.length === 1 && regex.test(sValueNew) === true) {
+                    sValueNew = '0'+sValueNew;
+                }
+              
+            } catch (error) {
+                console.log(error);        
+            }
+
+            return sValueNew;
 
         },
 

@@ -44,6 +44,9 @@
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/SoldToParty">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/TotalDeliveryStatusDesc">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/PlanningStatusText">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
@@ -80,13 +83,16 @@
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/PlanningIsValid">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
-            <Annotations Target="cds_zui_sd_so_plan.PlanningType/LoadingDateChangeStatus">
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/StockAvailDateChanged">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/LoadingDateChanged">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/LocalLastChangedAt">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
-            <Annotations Target="cds_zui_sd_so_plan.PlanningType/dismissAlert_ac">
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/cockpitReady_ac">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/ExpectedAvailDate_fc">
@@ -178,13 +184,13 @@
                             <PropertyValue Property="Value" Path="ExpectedAvailDate"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="StockAvailDate"/>
-                        </Record>
-                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="LoadingDate"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="LoadingTime"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="StockAvailDate"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="MinDeliveryDate"/>
@@ -194,6 +200,9 @@
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="CreationDate"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CockpitReady"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="LastChangedBy"/>
@@ -236,15 +245,15 @@
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="StockAvailDate"/>
-                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-                        </Record>
-                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="LoadingDate"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="LoadingTime"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="StockAvailDate"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
@@ -259,14 +268,36 @@
                             <PropertyValue Property="Value" Path="CreationDate"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
                         </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CockpitReady"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
                         <Record Type="UI.DataFieldForAction">
                             <PropertyValue Property="Label" String="Dismiss alert"/>
-                            <PropertyValue Property="Action" String="cds_zui_sd_so_plan.cds_zui_sd_so_plan_Entities/dismissAlert"/>
+                            <PropertyValue Property="Action" String="">
+                                <Annotation Term="Core.Messages">
+                                    <Collection>
+                                        <Record>
+                                            <PropertyValue Property="message" String="ERROR: Mandatory Value for Action not found"/>
+                                            <PropertyValue Property="severity" String="error"/>
+                                        </Record>
+                                    </Collection>
+                                </Annotation>
+                            </PropertyValue>
                             <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Criticality" Path="LoadingDateChangeStatus"/>
+                            <PropertyValue Property="Criticality" Path="StockAvailDateChanged"/>
+                            <PropertyValue Property="Value" Path="StockAvailDate"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Criticality" Path="LoadingDateChanged"/>
                             <PropertyValue Property="Value" Path="LoadingDate"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Cockpit Ready"/>
+                            <PropertyValue Property="Action" String="cds_zui_sd_so_plan.cds_zui_sd_so_plan_Entities/cockpitReady"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
                         </Record>
                     </Collection>
                     <Annotation Term="UI.Criticality" Path="PlanningIsValid"/>
@@ -297,6 +328,33 @@
                         <PropertyPath>TotalDeliveryStatus</PropertyPath>
                     </Collection>
                 </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.SalesOrderType/SalesOrder">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.SalesOrderType/CreatedByUser">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.SalesOrderType/LastChangedByUser">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.SalesOrderType/CreationDate">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.SalesOrderType/CreationTime">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.SalesOrderType/LastChangeDate">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.SalesOrderType/LastChangeDateTime">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.SalesOrderType/TotalNetAmount">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.SalesOrderType/TransactionCurrency">
+                <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.SalesOrderType">
                 <Annotation Term="UI.Facets">
@@ -426,6 +484,30 @@
                         <PropertyPath>SoldToParty</PropertyPath>
                     </Collection>
                 </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.ItemType/SalesOrder">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.ItemType/SalesOrderItem">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.ItemType/CreatedByUser">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.ItemType/CreationDate">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.ItemType/CreationTime">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.ItemType/LastChangeDate">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.ItemType/NetAmount">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.ItemType/TransactionCurrency">
+                <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.ItemType">
                 <Annotation Term="UI.Facets">
@@ -578,7 +660,7 @@
                             <PropertyValue Property="Value" Path="ChangeNumber"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="FieldName"/>
+                            <PropertyValue Property="Value" Path="FieldDescription"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="ChangedBy"/>
@@ -601,7 +683,7 @@
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="FieldName"/>
+                            <PropertyValue Property="Value" Path="FieldDescription"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataField">
