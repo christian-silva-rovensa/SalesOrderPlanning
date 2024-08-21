@@ -96,17 +96,17 @@ sap.ui.define([
 
                 var oData = { SalesOrder: salesOrderItem[0], 
                               SalesOrderItem: salesOrderItem[1], 
-                              ExpectedAvailDate: salesOrderItem[2],
-                              JustExpectedAvailDate: salesOrderItem[3],
-                              StockAvailDate: salesOrderItem[4],
-                              JustStockAvailDate: salesOrderItem[5],
-                              LoadingDate: salesOrderItem[6],
-                              JustLoadingDate: salesOrderItem[7],
-                              LoadingTime: salesOrderItem[8],
-                              MinDeliveryDate: salesOrderItem[9],
-                              JustMinDeliveryDate: salesOrderItem[10],
-                              MaxDeliveryDate: salesOrderItem[11],
-                              JustMaxDeliveryDate: salesOrderItem[12] };
+                              ExpectedAvailDate: salesOrderItem[6],
+                              JustExpectedAvailDate: salesOrderItem[7],
+                              StockAvailDate: salesOrderItem[8],
+                              JustStockAvailDate: salesOrderItem[9],
+                              LoadingDate: salesOrderItem[10],
+                              JustLoadingDate: salesOrderItem[11],
+                              LoadingTime: salesOrderItem[12],
+                              MinDeliveryDate: salesOrderItem[13],
+                              JustMinDeliveryDate: salesOrderItem[14],
+                              MaxDeliveryDate: salesOrderItem[15],
+                              JustMaxDeliveryDate: salesOrderItem[16] };
 
                 aData.push(oData);
 
@@ -182,7 +182,8 @@ sap.ui.define([
 
             if( aSalesOrderItems.length > 0){
                 //TODO: i18n
-                this._setCustomMessage("Planning is being updated", "I");
+                //this._setCustomMessage("Planning is being updated", "I");
+                MessageToast.show("Planning is being updated");
             }
 
             aSalesOrderItems.forEach(entity => {
@@ -261,6 +262,10 @@ sap.ui.define([
                 aContexts.forEach(element => {
                     oData.push({ SalesOrder: element.getProperty("SalesOrder"), 
                                  SalesOrderItem: element.getProperty("SalesOrderItem"), 
+                                 Material: element.getProperty("Material"),
+                                 MaterialName: element.getProperty("MaterialName"), 
+                                 OrderQuantity: element.getProperty("OrderQuantity"), 
+                                 OrderQuantityUnit: element.getProperty("OrderQuantityUnit"),
                                  RequestFinishDate: element.getProperty("ExpectedAvailDate"),
                                  JustRequestFinishDate: element.getProperty("JustExpectedAvailDate"),
                                  FinalFinishDate: element.getProperty("StockAvailDate"),
@@ -274,27 +279,6 @@ sap.ui.define([
                                  JustMaxDeliveryDate: element.getProperty("JustMaxDeliveryDate")
                             });
 
-                    /*
-                    oData.push({ SalesOrder: element.getProperty("SalesOrder"), 
-                                 SalesOrderItem: element.getProperty("SalesOrderItem"), 
-                                 DeliveryDate: element.getProperty("DeliveryDate"),
-                                 Material: element.getProperty("Material"),
-                                 OrderQuantity: element.getProperty("OrderQuantity"),
-                                 OrderQuantityUnit: element.getProperty("OrderQuantityUnit"),
-                                 Plant: element.getProperty("Plant"),
-                                 RequestFinishDate: element.getProperty("ExpectedAvailDate"),
-                                 JustRequestFinishDate: element.getProperty("JustExpectedAvailDate"),
-                                 FinalFinishDate: element.getProperty("StockAvailDate"),
-                                 JustFinalFinishDate: element.getProperty("JustStockAvailDate"),
-                                 ExpectedLoadingDate: element.getProperty("LoadingDate"),
-                                 JustExpectedLoadingDate: element.getProperty("JustLoadingDate"),
-                                 ExpectedLoadingTime: element.getProperty("LoadingTime"),
-                                 MinDeliveryDate: element.getProperty("MinDeliveryDate"),
-                                 JustMinDeliveryDate: element.getProperty("JustMinDeliveryDate"),
-                                 MaxDeliveryDate: element.getProperty("MaxDeliveryDate"),                                 
-                                 JustMaxDeliveryDate: element.getProperty("JustMaxDeliveryDate")
-                            });
-                    */
                 });
 
             }else{
@@ -302,6 +286,10 @@ sap.ui.define([
                 //Sample data
                 oData.push({ SalesOrder:"9999999999", 
                              SalesOrderItem:"10", 
+                             Material: "",
+                             MaterialName: "",
+                             OrderQuantity: "", 
+                             OrderQuantityUnit: "",
                              RequestFinishDate: "31/12/9999",
                              JustRequestFinishDate: "",
                              FinalFinishDate: "31/12/9999",

@@ -95,6 +95,9 @@
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/cockpitReady_ac">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/productTransfer_ac">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/ExpectedAvailDate_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
@@ -126,6 +129,12 @@
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/StockAvailDate_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/TransportCompany_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/TransportPlate_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/Delete_mc">
@@ -332,16 +341,7 @@
             <Annotations Target="cds_zui_sd_so_plan.SalesOrderType/SalesOrder">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
-            <Annotations Target="cds_zui_sd_so_plan.SalesOrderType/CreatedByUser">
-                <Annotation Term="UI.HiddenFilter"/>
-            </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.SalesOrderType/LastChangedByUser">
-                <Annotation Term="UI.HiddenFilter"/>
-            </Annotations>
-            <Annotations Target="cds_zui_sd_so_plan.SalesOrderType/CreationDate">
-                <Annotation Term="UI.HiddenFilter"/>
-            </Annotations>
-            <Annotations Target="cds_zui_sd_so_plan.SalesOrderType/CreationTime">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.SalesOrderType/LastChangeDate">

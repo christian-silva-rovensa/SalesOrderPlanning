@@ -48,6 +48,12 @@
                                     <Record Type="UI.DataField">
                                         <PropertyValue Property="Value" Path="JustMaxDeliveryDate"/>
                                     </Record>
+                                    <Record Type="UI.DataField">
+                                        <PropertyValue Property="Value" Path="TransportCompany"/>
+                                    </Record>
+                                    <Record Type="UI.DataField">
+                                        <PropertyValue Property="Value" Path="TransportPlate"/>
+                                    </Record>
                                 </Collection>
                             </PropertyValue>
                     </Record>
@@ -139,6 +145,15 @@
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="CockpitReady"/>
                                 </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ProductTransfer"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="TransportCompany"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="TransportPlate"/>
+                                </Record>
                               </Collection>
                         </PropertyValue>
                         <PropertyValue Property="Label" String="{@i18n>planning}"/>
@@ -193,6 +208,13 @@
                                     <PropertyValue Property="Label" String="{@i18n>soldtoPartyName}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ShipToParty"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ShipToPartyName"/>
+                                    <PropertyValue Property="Label" String="{@i18n>shiptoPartyName}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="to_SalesOrder/SalesOrderDate"/>
                                 </Record>
                                 <Record Type="UI.DataField">
@@ -212,6 +234,12 @@
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="DeliveryBlockReasonText"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CustomerReference"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="to_SalesOrder/CreatedByUser"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="to_SalesOrder/CreationDate"/>
