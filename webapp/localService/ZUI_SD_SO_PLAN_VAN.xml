@@ -119,6 +119,9 @@
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/LoadingDate_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/LoadingDateNotes_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/LoadingTime_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
@@ -129,6 +132,9 @@
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/StockAvailDate_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/StockAvailDateNotes_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/TransportCompany_fc">
@@ -214,6 +220,9 @@
                             <PropertyValue Property="Value" Path="CockpitReady"/>
                         </Record>
                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductTransfer"/>
+                        </Record>
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="LastChangedBy"/>
                         </Record>
                         <Record Type="UI.DataField">
@@ -278,6 +287,10 @@
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
                         </Record>
                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductTransfer"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="CockpitReady"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
@@ -306,6 +319,11 @@
                         <Record Type="UI.DataFieldForAction">
                             <PropertyValue Property="Label" String="Cockpit Ready"/>
                             <PropertyValue Property="Action" String="cds_zui_sd_so_plan.cds_zui_sd_so_plan_Entities/cockpitReady"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Product Transfer"/>
+                            <PropertyValue Property="Action" String="cds_zui_sd_so_plan.cds_zui_sd_so_plan_Entities/productTransfer"/>
                             <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
                         </Record>
                     </Collection>
