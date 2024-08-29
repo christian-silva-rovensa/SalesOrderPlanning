@@ -96,17 +96,19 @@ sap.ui.define([
 
                 var oData = { SalesOrder: salesOrderItem[0], 
                               SalesOrderItem: salesOrderItem[1], 
-                              ExpectedAvailDate: salesOrderItem[6],
-                              JustExpectedAvailDate: salesOrderItem[7],
-                              StockAvailDate: salesOrderItem[8],
-                              JustStockAvailDate: salesOrderItem[9],
-                              LoadingDate: salesOrderItem[10],
-                              JustLoadingDate: salesOrderItem[11],
-                              LoadingTime: salesOrderItem[12],
-                              MinDeliveryDate: salesOrderItem[13],
-                              JustMinDeliveryDate: salesOrderItem[14],
-                              MaxDeliveryDate: salesOrderItem[15],
-                              JustMaxDeliveryDate: salesOrderItem[16] };
+                              ExpectedAvailDate: salesOrderItem[8],
+                              JustExpectedAvailDate: salesOrderItem[9],
+                              StockAvailDate: salesOrderItem[10],
+                              JustStockAvailDate: salesOrderItem[11],
+                              StockAvailDateNotes: salesOrderItem[12],
+                              LoadingDate: salesOrderItem[13],
+                              JustLoadingDate: salesOrderItem[14],
+                              LoadingDateNotes: salesOrderItem[15],
+                              LoadingTime: salesOrderItem[16],
+                              MinDeliveryDate: salesOrderItem[17],
+                              JustMinDeliveryDate: salesOrderItem[18],
+                              MaxDeliveryDate: salesOrderItem[19],
+                              JustMaxDeliveryDate: salesOrderItem[20] };
 
                 aData.push(oData);
 
@@ -173,7 +175,9 @@ sap.ui.define([
                                         JustStockAvailDate: that._addLeadingZero(entity.JustStockAvailDate),
                                         JustLoadingDate: that._addLeadingZero(entity.JustLoadingDate),
                                         JustMinDeliveryDate: that._addLeadingZero(entity.JustMinDeliveryDate),
-                                        JustMaxDeliveryDate: that._addLeadingZero(entity.JustMaxDeliveryDate)
+                                        JustMaxDeliveryDate: that._addLeadingZero(entity.JustMaxDeliveryDate),
+                                        StockAvailDateNotes: entity.StockAvailDateNotes,
+                                        LoadingDateNotes: entity.LoadingDateNotes
                                      };
                 
                 aSalesOrderItems.push(oSalesOrderItem);
@@ -266,12 +270,16 @@ sap.ui.define([
                                  MaterialName: element.getProperty("MaterialName"), 
                                  OrderQuantity: element.getProperty("OrderQuantity"), 
                                  OrderQuantityUnit: element.getProperty("OrderQuantityUnit"),
+                                 SoldToParty: element.getProperty("SoldToParty"),
+                                 SoldToPartyName: element.getProperty("SoldToPartyName"),
                                  RequestFinishDate: element.getProperty("ExpectedAvailDate"),
                                  JustRequestFinishDate: element.getProperty("JustExpectedAvailDate"),
                                  FinalFinishDate: element.getProperty("StockAvailDate"),
                                  JustFinalFinishDate: element.getProperty("JustStockAvailDate"),
+                                 FinalFinishDateNotes: element.getProperty("StockAvailDateNotes"),
                                  ExpectedLoadingDate: element.getProperty("LoadingDate"),
                                  JustExpectedLoadingDate: element.getProperty("JustLoadingDate"),
+                                 ExpectedLoadingDateNotes: element.getProperty("LoadingDateNotes"),
                                  ExpectedLoadingTime: element.getProperty("LoadingTime"),
                                  MinDeliveryDate: element.getProperty("MinDeliveryDate"),
                                  JustMinDeliveryDate: element.getProperty("JustMinDeliveryDate"),
@@ -290,12 +298,16 @@ sap.ui.define([
                              MaterialName: "",
                              OrderQuantity: "", 
                              OrderQuantityUnit: "",
+                             SoldToParty: "",
+                             SoldToPartyName: "",
                              RequestFinishDate: "31/12/9999",
                              JustRequestFinishDate: "",
                              FinalFinishDate: "31/12/9999",
                              JustFinalFinishDate: "",
+                             FinalFinishDateNotes: "",
                              ExpectedLoadingDate: "31/12/9999",
                              JustExpectedLoadingDate: "",
+                             ExpectedLoadingDateNotes: "",
                              ExpectedLoadingTime: "23:59:59",
                              MinDeliveryDate: "31/12/9999",
                              JustMinDeliveryDate: "",

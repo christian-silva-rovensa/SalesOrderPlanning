@@ -20,6 +20,6 @@ builder:
           name: ZUI5_SD_SO_PLAN
           description: Sales Order Planning
           package: ZSD001
-          transport: HSDK959653
+          transport: HSDK960625
         exclude:
           - /test/
