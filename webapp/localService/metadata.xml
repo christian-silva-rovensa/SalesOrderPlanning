@@ -281,6 +281,7 @@
                 </Key>
                 <Property Name="cockpitReady_ac" Type="Edm.Boolean" sap:label="Ctrl.ação dinâmica" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="productTransfer_ac" Type="Edm.Boolean" sap:label="Ctrl.ação dinâmica" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ConfirmedLoadingDate_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ExpectedAvailDate_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="JustExpectedAvailDate_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="JustLoadingDate_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -296,6 +297,7 @@
                 <Property Name="StockAvailDateNotes_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TransportCompany_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TransportPlate_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="VesselETD_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Delete_mc" Type="Edm.Boolean" sap:label="Dyn. Method Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Update_mc" Type="Edm.Boolean" sap:label="Dyn. Method Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Documento de vendas" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
@@ -308,18 +310,18 @@
                 <Property Name="SalesOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Organização vendas" sap:quickinfo="Organização de vendas" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
                 <Property Name="SoldToParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Emissor da ordem" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
                 <Property Name="SoldToPartyName" Type="Edm.String" MaxLength="80" sap:label="Sold-to Party Name" sap:quickinfo="Nome do cliente" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="ShipToParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Ship-to Party" sap:quickinfo="Nº cliente" sap:value-list="standard"/>
-                <Property Name="ShipToPartyName" Type="Edm.String" MaxLength="80" sap:label="Ship-to Party Name"/>
+                <Property Name="ShipToParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Ship-to Party" sap:quickinfo="Nº cliente" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="ShipToPartyName" Type="Edm.String" MaxLength="80" sap:label="Ship-to Party Name" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Criado em" sap:quickinfo="Data de criação do registro" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="DeliveryBlockReason" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Delivery Block" sap:quickinfo="Bloqueio da remessa (cabeçalho do documento)" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="DeliveryBlockReasonText" Type="Edm.String" MaxLength="20" sap:label="Delivery Block Description" sap:quickinfo="Descrição" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="IncotermsClassification" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Incoterms" sap:quickinfo="Incoterms parte 1" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="TotalCreditCheckStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Credit Check Status" sap:quickinfo="Status global das verificações de crédito" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
-                <Property Name="TotalCreditCheckStatusDesc" Type="Edm.String" MaxLength="20" sap:label="Credit Check Status Description" sap:quickinfo="Descrição do status"/>
+                <Property Name="TotalCreditCheckStatusDesc" Type="Edm.String" MaxLength="20" sap:label="Credit Check Status Description" sap:quickinfo="Descrição do status" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="TotalNetAmount" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="TransactionCurrency" sap:variable-scale="true" sap:label="Valor líquido" sap:quickinfo="Valor líquido da ordem na moeda do documento"/>
                 <Property Name="TransactionCurrency" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Moeda do documento" sap:quickinfo="Moeda do documento SD" sap:semantics="currency-code"/>
                 <Property Name="TotalDeliveryStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Delivery Status" sap:quickinfo="Status global da remessa (item)" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
-                <Property Name="TotalDeliveryStatusDesc" Type="Edm.String" MaxLength="20" sap:label="Delivery Status Description" sap:quickinfo="Descrição do status"/>
+                <Property Name="TotalDeliveryStatusDesc" Type="Edm.String" MaxLength="20" sap:label="Delivery Status Description" sap:quickinfo="Descrição do status" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="CommittedDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Committed Delivery Date" sap:quickinfo="Data da remessa com a qual o fornecedor se comprometeu" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="FirstDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="First Date" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="PlanningIsValid" Type="Edm.String" MaxLength="1" sap:creatable="false" sap:updatable="false"/>
@@ -330,13 +332,15 @@
                 <Property Name="PurchaseOrder" Type="Edm.String" MaxLength="35" sap:label="Purchase Order" sap:quickinfo="Referência do cliente" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="OriginalSalesOrder" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Original Sales Order" sap:quickinfo="Nº documento de vendas e distribuição (SD)" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="OriginalPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Original Plant" sap:quickinfo="Centro (próprio ou externo)" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="CustomerReference" Type="Edm.String" MaxLength="35" sap:label="Customer Reference" sap:quickinfo="Referência do cliente"/>
+                <Property Name="CustomerReference" Type="Edm.String" MaxLength="35" sap:label="Customer Reference" sap:quickinfo="Referência do cliente" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="ExpectedAvailDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="ExpectedAvailDate_fc" sap:label="CCC - Request Finish Date" sap:quickinfo="Expected Available Date"/>
                 <Property Name="StockAvailDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="StockAvailDate_fc" sap:label="FACTORY - Final Finish Date" sap:quickinfo="Data Disponib. em Stock"/>
                 <Property Name="StockAvailDateNotes" Type="Edm.String" MaxLength="200" sap:field-control="StockAvailDateNotes_fc" sap:label="FACTORY - Final Finish Date Notes" sap:quickinfo="Loading Date Notes"/>
-                <Property Name="LoadingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="LoadingDate_fc" sap:label="LOGISTIC - Expected Loading Date" sap:quickinfo="Data de carregamento"/>
-                <Property Name="LoadingTime" Type="Edm.Time" Precision="0" sap:field-control="LoadingTime_fc" sap:label="LOGISTIC - Expected Loading Time" sap:quickinfo="Sales Order Planning - Expected Loading Time"/>
+                <Property Name="ConfirmedLoadingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="ConfirmedLoadingDate_fc" sap:label="LOGISTIC - Confirmed Loading Date" sap:quickinfo="Sales Order Planning - Confirmed Loadind Date"/>
+                <Property Name="LoadingTime" Type="Edm.Time" Precision="0" sap:field-control="LoadingTime_fc" sap:label="LOGISTIC - Confirmed Loading Time" sap:quickinfo="Sales Order Planning - Expected Loading Time"/>
+                <Property Name="LoadingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="LoadingDate_fc" sap:label="LCC-CCC Exp. Loading / Invoicing Date" sap:quickinfo="Data de carregamento"/>
                 <Property Name="LoadingDateNotes" Type="Edm.String" MaxLength="200" sap:field-control="LoadingDateNotes_fc" sap:label="LOGISTIC - Expected Loading Date Notes" sap:quickinfo="Loading Date Notes"/>
+                <Property Name="VesselETD" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="VesselETD_fc" sap:label="CCC - Vessel ETD" sap:quickinfo="Sales Order Planning - Vessel ETD"/>
                 <Property Name="MinDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="MinDeliveryDate_fc" sap:label="CCC - Min. Arrival Date" sap:quickinfo="Data de entrega"/>
                 <Property Name="MaxDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="MaxDeliveryDate_fc" sap:label="CCC - Max. Arrival Date" sap:quickinfo="Data fim entrega"/>
                 <Property Name="JustExpectedAvailDate" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:field-control="JustExpectedAvailDate_fc" sap:label="CCC - Just. Request Finish Date" sap:quickinfo="Justification of change - Expected Avail. date" sap:value-list="standard"/>
@@ -2197,6 +2201,7 @@
                             <Collection>
                                 <PropertyPath>cockpitReady_ac</PropertyPath>
                                 <PropertyPath>productTransfer_ac</PropertyPath>
+                                <PropertyPath>ConfirmedLoadingDate_fc</PropertyPath>
                                 <PropertyPath>ExpectedAvailDate_fc</PropertyPath>
                                 <PropertyPath>JustExpectedAvailDate_fc</PropertyPath>
                                 <PropertyPath>JustLoadingDate_fc</PropertyPath>
@@ -2212,6 +2217,7 @@
                                 <PropertyPath>StockAvailDateNotes_fc</PropertyPath>
                                 <PropertyPath>TransportCompany_fc</PropertyPath>
                                 <PropertyPath>TransportPlate_fc</PropertyPath>
+                                <PropertyPath>VesselETD_fc</PropertyPath>
                                 <PropertyPath>Delete_mc</PropertyPath>
                                 <PropertyPath>Update_mc</PropertyPath>
                             </Collection>
@@ -2261,6 +2267,7 @@
                             <Collection>
                                 <PropertyPath>cockpitReady_ac</PropertyPath>
                                 <PropertyPath>productTransfer_ac</PropertyPath>
+                                <PropertyPath>ConfirmedLoadingDate_fc</PropertyPath>
                                 <PropertyPath>ExpectedAvailDate_fc</PropertyPath>
                                 <PropertyPath>JustExpectedAvailDate_fc</PropertyPath>
                                 <PropertyPath>JustLoadingDate_fc</PropertyPath>
@@ -2276,6 +2283,7 @@
                                 <PropertyPath>StockAvailDateNotes_fc</PropertyPath>
                                 <PropertyPath>TransportCompany_fc</PropertyPath>
                                 <PropertyPath>TransportPlate_fc</PropertyPath>
+                                <PropertyPath>VesselETD_fc</PropertyPath>
                                 <PropertyPath>Delete_mc</PropertyPath>
                                 <PropertyPath>Update_mc</PropertyPath>
                             </Collection>

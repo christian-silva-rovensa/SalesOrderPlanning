@@ -16,10 +16,11 @@ builder:
         target:
           destination: HSD
           url: http://hsd:443
+          client: '100'
         app:
           name: ZUI5_SD_SO_PLAN
           description: Sales Order Planning
           package: ZSD001
-          transport: HSDK960625
+          transport: HSDK962183
         exclude:
           - /test/

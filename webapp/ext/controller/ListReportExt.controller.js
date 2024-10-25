@@ -94,21 +94,23 @@ sap.ui.define([
             //slice(1) is used here to skip the header
             raw_data.slice(1).forEach(salesOrderItem => {
 
-                var oData = { SalesOrder: salesOrderItem[0], 
+                let oData = { SalesOrder: salesOrderItem[0], 
                               SalesOrderItem: salesOrderItem[1], 
                               ExpectedAvailDate: salesOrderItem[8],
                               JustExpectedAvailDate: salesOrderItem[9],
                               StockAvailDate: salesOrderItem[10],
                               JustStockAvailDate: salesOrderItem[11],
                               StockAvailDateNotes: salesOrderItem[12],
-                              LoadingDate: salesOrderItem[13],
-                              JustLoadingDate: salesOrderItem[14],
-                              LoadingDateNotes: salesOrderItem[15],
-                              LoadingTime: salesOrderItem[16],
-                              MinDeliveryDate: salesOrderItem[17],
-                              JustMinDeliveryDate: salesOrderItem[18],
-                              MaxDeliveryDate: salesOrderItem[19],
-                              JustMaxDeliveryDate: salesOrderItem[20] };
+                              ConfirmedLoadingDate: salesOrderItem[13],
+                              LoadingTime: salesOrderItem[14],
+                              LoadingDate: salesOrderItem[15],
+                              JustLoadingDate: salesOrderItem[16],
+                              LoadingDateNotes: salesOrderItem[17],
+                              VesselETD: salesOrderItem[18],
+                              MinDeliveryDate: salesOrderItem[19],
+                              JustMinDeliveryDate: salesOrderItem[20],
+                              MaxDeliveryDate: salesOrderItem[21],
+                              JustMaxDeliveryDate: salesOrderItem[22] };
 
                 aData.push(oData);
 
@@ -118,27 +120,23 @@ sap.ui.define([
 
             aData.forEach(entity => {
 
-                if(entity.ExpectedAvailDate === undefined){
-                    //entity.ExpectedAvailDate = "0000-00-00T00:00:00";
-                }else{
+                if(entity.ExpectedAvailDate !== undefined){
                     entity.ExpectedAvailDate = moment(entity.ExpectedAvailDate).format('YYYY-MM-DDTHH:MM:SS');
                 }
 
-                if(entity.StockAvailDate === undefined){
-                    //entity.StockAvailDate = "0000-00-00T00:00:00";
-                }else{
+                if(entity.StockAvailDate !== undefined){
                     entity.StockAvailDate = moment(entity.StockAvailDate).format('YYYY-MM-DDTHH:MM:SS');
                 }
 
-                if(entity.LoadingDate === undefined){
-                    //entity.LoadingDate = "0000-00-00T00:00:00";
-                }else{
+                if(entity.ConfirmedLoadingDate !== undefined){
+                    entity.ConfirmedLoadingDate = moment(entity.ConfirmedLoadingDate).format('YYYY-MM-DDTHH:MM:SS');
+                }
+
+                if(entity.LoadingDate !== undefined){
                     entity.LoadingDate = moment(entity.LoadingDate).format('YYYY-MM-DDTHH:MM:SS');
                 }
 
-                if(entity.LoadingTime === undefined){
-                    //entity.LoadingTime = "";
-                }else{
+                if(entity.LoadingTime !== undefined){
                     let str = entity.LoadingTime.toString();
                     let matches = str.replace(/[^0-9:]/g, "");
                     const myArr = matches.split(":");
@@ -151,15 +149,15 @@ sap.ui.define([
                     }
                 }
 
-                if(entity.MinDeliveryDate === undefined){
-                    //entity.MinDeliveryDate = "0000-00-00T00:00:00";
-                }else{
+                if(entity.VesselETD !== undefined){
+                    entity.VesselETD = moment(entity.VesselETD).format('YYYY-MM-DDTHH:MM:SS');
+                }
+
+                if(entity.MinDeliveryDate !== undefined){
                     entity.MinDeliveryDate = moment(entity.MinDeliveryDate).format('YYYY-MM-DDTHH:MM:SS');
                 }
 
-                if(entity.MaxDeliveryDate === undefined){
-                    //entity.MaxDeliveryDate = "0000-00-00T00:00:00";
-                }else{
+                if(entity.MaxDeliveryDate !== undefined){
                     entity.MaxDeliveryDate = moment(entity.MaxDeliveryDate).format('YYYY-MM-DDTHH:MM:SS');
                 }
 
@@ -167,8 +165,10 @@ sap.ui.define([
                                         SalesOrderItem: entity.SalesOrderItem, 
                                         ExpectedAvailDate: entity.ExpectedAvailDate,
                                         StockAvailDate: entity.StockAvailDate,
-                                        LoadingDate: entity.LoadingDate,
+                                        ConfirmedLoadingDate: entity.ConfirmedLoadingDate,
                                         LoadingTime: entity.LoadingTime,
+                                        LoadingDate: entity.LoadingDate,
+                                        VesselETD: entity.VesselETD,
                                         MinDeliveryDate: entity.MinDeliveryDate,
                                         MaxDeliveryDate: entity.MaxDeliveryDate,
                                         JustExpectedAvailDate: that._addLeadingZero(entity.JustExpectedAvailDate),
@@ -201,30 +201,26 @@ sap.ui.define([
                         
                         if(!response){
                             //TODO: i18n
-                            let sMessage = "Sales Order: "+entity.SalesOrder + ", Sales Order Item: " + entity.SalesOrderItem + " updated successfully.";
+                            let sMessage = "Sales Order: "+ entity.SalesOrder + ", Sales Order Item: " + entity.SalesOrderItem + " updated successfully.";
                             that.addMessage(sMessage, "S");
                         }
 
                     }, 
                     error: function(err){
-
-                        return;
                         
                         /*
-                        let sMessage = "An unexpected error occurred";
+                        if(err.responseText){
 
-                        if(!err.responseText){
-                            that.addMessage(sMessage, "E");
-                        }else{
+                            let oError = JSON.parse(err.responseText);
 
-                            let oErr = JSON.parse(err.responseText);
-
-                            if (oErr.error.message.value) {
-                                sMessage = oErr.error.message.value;
+                            if (oError.error.message.value) {
+                                // Add a message only if the error message does not contain the Sales Ordem information  
+                                if (!oError.error.message.value.includes(entity.SalesOrder)) {
+                                    let sMessage = "Sales Order: "+ entity.SalesOrder + ", Sales Order Item: " + entity.SalesOrderItem + " - " + oError.error.message.value;
+                                    that.addMessage(sMessage, "E");
+                                }
                             }
                             
-                            that.addMessage(sMessage, "E");
-
                         }
                         */
 
@@ -277,10 +273,12 @@ sap.ui.define([
                                  FinalFinishDate: element.getProperty("StockAvailDate"),
                                  JustFinalFinishDate: element.getProperty("JustStockAvailDate"),
                                  FinalFinishDateNotes: element.getProperty("StockAvailDateNotes"),
+                                 ConfirmedLoadingDate: element.getProperty("ConfirmedLoadingDate"),
+                                 ConfirmedLoadingTime: element.getProperty("LoadingTime"),
                                  ExpectedLoadingDate: element.getProperty("LoadingDate"),
                                  JustExpectedLoadingDate: element.getProperty("JustLoadingDate"),
                                  ExpectedLoadingDateNotes: element.getProperty("LoadingDateNotes"),
-                                 ExpectedLoadingTime: element.getProperty("LoadingTime"),
+                                 VesselETD: element.getProperty("VesselETD"),
                                  MinDeliveryDate: element.getProperty("MinDeliveryDate"),
                                  JustMinDeliveryDate: element.getProperty("JustMinDeliveryDate"),
                                  MaxDeliveryDate: element.getProperty("MaxDeliveryDate"),                                 
@@ -292,10 +290,10 @@ sap.ui.define([
             }else{
                 
                 //Sample data
-                oData.push({ SalesOrder:"9999999999", 
-                             SalesOrderItem:"10", 
+                oData.push({ SalesOrder: "9999999999", 
+                             SalesOrderItem: "10", 
                              Material: "",
-                             MaterialName: "",
+                             MaterialName: "", 
                              OrderQuantity: "", 
                              OrderQuantityUnit: "",
                              SoldToParty: "",
@@ -305,15 +303,17 @@ sap.ui.define([
                              FinalFinishDate: "31/12/9999",
                              JustFinalFinishDate: "",
                              FinalFinishDateNotes: "",
+                             ConfirmedLoadingDate: "31/12/9999",
+                             ConfirmedLoadingTime: "23:59:59",
                              ExpectedLoadingDate: "31/12/9999",
                              JustExpectedLoadingDate: "",
                              ExpectedLoadingDateNotes: "",
-                             ExpectedLoadingTime: "23:59:59",
+                             VesselETD: "31/12/9999",
                              MinDeliveryDate: "31/12/9999",
                              JustMinDeliveryDate: "",
-                             MaxDeliveryDate: "31/12/9999",                           
-                             JustMaxDeliveryDate: "" }
-                        );
+                             MaxDeliveryDate: "31/12/9999",                                 
+                             JustMaxDeliveryDate: ""
+                    });
             }
 
             const worksheet = XLSX.utils.json_to_sheet(oData);
