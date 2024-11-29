@@ -294,7 +294,7 @@ sap.ui.define([
                              SalesOrderItem: "10", 
                              Material: "",
                              MaterialName: "", 
-                             OrderQuantity: "", 
+                             OrderQuantity: "0", 
                              OrderQuantityUnit: "",
                              SoldToParty: "",
                              SoldToPartyName: "",
@@ -320,8 +320,19 @@ sap.ui.define([
 
             const workbook = XLSX.utils.book_new();
             
-            XLSX.utils.book_append_sheet(workbook, worksheet, "Planning");     
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Planning");  
+            
+            const columnLetter = 'E'; "Order Quantity"
+            const range = XLSX.utils.decode_range(worksheet['!ref']);
 
+            // Iterate through each cell in the column order quantity and set the type to 'n' (number)
+            for (let row = range.s.r + 1; row <= range.e.r; row++) {
+                const cellAddress = `${columnLetter}${row + 1}`;
+                if (worksheet[cellAddress]) {
+                    worksheet[cellAddress].t = 'n'; // Set cell type to number
+                }
+            }
+            
             XLSX.writeFile(workbook, "PlanningTemplate.xlsx", { compression: true });
 
         },
