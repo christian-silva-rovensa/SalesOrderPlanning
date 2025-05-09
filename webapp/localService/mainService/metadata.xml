@@ -343,7 +343,7 @@
                 <Property Name="OriginalSalesOrder" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Original Sales Order" sap:quickinfo="Nº documento de vendas e distribuição (SD)" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="OriginalPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Original Plant" sap:quickinfo="Centro (próprio ou externo)" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="CustomerReference" Type="Edm.String" MaxLength="35" sap:label="Customer Reference" sap:quickinfo="Referência do cliente" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="NumberOfPallets" Type="Edm.Int64" sap:label="Number of Pallets" sap:quickinfo="Quantidade de Paletes"/>
+                <Property Name="NumberOfPallets" Type="Edm.Int64" sap:label="Pallet Quantity" sap:quickinfo="Quantidade de Paletes"/>
                 <Property Name="ExpectedAvailDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="ExpectedAvailDate_fc" sap:label="CCC - Request Finish Date" sap:quickinfo="Expected Available Date"/>
                 <Property Name="StockAvailDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="StockAvailDate_fc" sap:label="FACTORY - Final Finish Date" sap:quickinfo="Data Disponib. em Stock"/>
                 <Property Name="StockAvailDateNotes" Type="Edm.String" MaxLength="200" sap:field-control="StockAvailDateNotes_fc" sap:label="FACTORY - Final Finish Date Notes" sap:quickinfo="Loading Date Notes"/>
@@ -404,6 +404,7 @@
                 <Property Name="SalesOrderDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data do documento" sap:quickinfo="Data do documento (data de entrada/saída)"/>
                 <Property Name="TotalNetAmount" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="TransactionCurrency" sap:variable-scale="true" sap:label="Valor líquido" sap:quickinfo="Valor líquido da ordem na moeda do documento"/>
                 <Property Name="TransactionCurrency" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Moeda do documento" sap:quickinfo="Moeda do documento SD" sap:semantics="currency-code"/>
+                <Property Name="NumberOfPalletsSO" Type="Edm.Int64" sap:label="Pallet Quantity"/>
                 <NavigationProperty Name="to_Item" Relationship="cds_zui_sd_so_plan.assoc_40EF20E9F659E600671DD81663ECADA5" FromRole="FromRole_assoc_40EF20E9F659E600671DD81663ECADA5" ToRole="ToRole_assoc_40EF20E9F659E600671DD81663ECADA5"/>
             </EntityType>
             <EntityType Name="ItemType" sap:label="Sales Order Item" sap:content-version="1">

@@ -272,6 +272,9 @@
                                     <PropertyValue Property="Value" Path="CustomerReference"/>
                                 </Record>
                                 <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="to_SalesOrder/NumberOfPalletsSO"/>
+                                </Record>
+                                <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="to_SalesOrder/CreatedByUser"/>
                                 </Record>
                                 <Record Type="UI.DataField">
