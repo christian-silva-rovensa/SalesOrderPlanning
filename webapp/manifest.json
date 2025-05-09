@@ -24,7 +24,7 @@
             "ZUI_SD_SO_PLAN_VAN",
             "annotation"
           ],
-          "localUri": "localService/metadata.xml",
+          "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "2.0"
         }
       },
@@ -32,7 +32,7 @@
         "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZUI_SD_SO_PLAN_VAN',Version='0001')/$value/",
         "type": "ODataAnnotation",
         "settings": {
-          "localUri": "localService/ZUI_SD_SO_PLAN_VAN.xml"
+          "localUri": "localService/mainService/ZUI_SD_SO_PLAN_VAN.xml"
         }
       },
       "annotation": {
@@ -101,12 +101,12 @@
         "dataSource": "mainService",
         "preload": false,
         "settings": {
-            "defaultBindingMode": "OneWay",
-            "defaultCountMode": "Inline",
-            "refreshAfterChange": false,
-            "metadataUrlParams": {
-                "sap-value-list": "none"
-            }
+          "defaultBindingMode": "OneWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
         }
       },
       "@i18n": {
@@ -123,38 +123,38 @@
       "targets": {}
     },
     "extends": {
-        "extensions": {
-            "sap.ui.controllerExtensions": {
-                "sap.suite.ui.generic.template.ListReport.view.ListReport": {
-                    "controllerName": "rovensa.soplan.ext.controller.ListReportExt",
-                    "sap.ui.generic.app": {
-                        "Planning": {
-                            "EntitySet": "Planning",
-                            "Actions": {
-                                "DisplayMessages": {
-                                    "id": "DisplayMessagesButton",
-                                    "text": "{i18n>messages}",
-                                    "press": "DisplayMessages",
-                                    "requiresSelection": false
-                                },
-                                "FileUpload": {
-                                    "id": "FileUploadButton",
-                                    "text": "{i18n>upload}",
-                                    "press": "FileUpload",
-                                    "requiresSelection": false
-                                },
-                                "DownloadTemplate": {
-                                    "id": "DownloadTemplateButton",
-                                    "text": "{i18n>template}",
-                                    "press": "DownloadTemplate",
-                                    "requiresSelection": false
-                                }
-                            }
-                        }
-                    }
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+            "controllerName": "rovensa.soplan.ext.controller.ListReportExt",
+            "sap.ui.generic.app": {
+              "Planning": {
+                "EntitySet": "Planning",
+                "Actions": {
+                  "DisplayMessages": {
+                    "id": "DisplayMessagesButton",
+                    "text": "{i18n>messages}",
+                    "press": "DisplayMessages",
+                    "requiresSelection": false
+                  },
+                  "FileUpload": {
+                    "id": "FileUploadButton",
+                    "text": "{i18n>upload}",
+                    "press": "FileUpload",
+                    "requiresSelection": false
+                  },
+                  "DownloadTemplate": {
+                    "id": "DownloadTemplateButton",
+                    "text": "{i18n>template}",
+                    "press": "DownloadTemplate",
+                    "requiresSelection": false
+                  }
                 }
+              }
             }
+          }
         }
+      }
     }
   },
   "sap.ui.generic.app": {
@@ -188,7 +188,7 @@
               "multiEdit": {
                 "enabled": true,
                 "annotationPath": "com.sap.vocabularies.UI.v1.FieldGroup#MultiEdit",
-                "ignoredFields":"LoadingTime" 
+                "ignoredFields": "LoadingTime"
               },
               "multiSelect": true,
               "selectAll": true,
@@ -200,7 +200,7 @@
                 "0": {
                   "key": "_tab1",
                   "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#Open"
-                  },
+                },
                 "1": {
                   "key": "_tab2",
                   "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#Completed"

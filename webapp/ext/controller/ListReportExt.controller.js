@@ -107,10 +107,12 @@ sap.ui.define([
                               JustLoadingDate: salesOrderItem[16],
                               LoadingDateNotes: salesOrderItem[17],
                               VesselETD: salesOrderItem[18],
-                              MinDeliveryDate: salesOrderItem[19],
-                              JustMinDeliveryDate: salesOrderItem[20],
-                              MaxDeliveryDate: salesOrderItem[21],
-                              JustMaxDeliveryDate: salesOrderItem[22] };
+                              FinalDelivery: salesOrderItem[19],
+                              MinDeliveryDate: salesOrderItem[20],
+                              JustMinDeliveryDate: salesOrderItem[21],
+                              MaxDeliveryDate: salesOrderItem[22],
+                              JustMaxDeliveryDate: salesOrderItem[23],
+                              Location: salesOrderItem[24] };
 
                 aData.push(oData);
 
@@ -169,8 +171,10 @@ sap.ui.define([
                                         LoadingTime: entity.LoadingTime,
                                         LoadingDate: entity.LoadingDate,
                                         VesselETD: entity.VesselETD,
+                                        FinalDelivery: entity.FinalDelivery,
                                         MinDeliveryDate: entity.MinDeliveryDate,
                                         MaxDeliveryDate: entity.MaxDeliveryDate,
+                                        Location: entity.Location,
                                         JustExpectedAvailDate: that._addLeadingZero(entity.JustExpectedAvailDate),
                                         JustStockAvailDate: that._addLeadingZero(entity.JustStockAvailDate),
                                         JustLoadingDate: that._addLeadingZero(entity.JustLoadingDate),
@@ -279,10 +283,12 @@ sap.ui.define([
                                  JustExpectedLoadingDate: element.getProperty("JustLoadingDate"),
                                  ExpectedLoadingDateNotes: element.getProperty("LoadingDateNotes"),
                                  VesselETD: element.getProperty("VesselETD"),
+                                 FinalDelivery: element.getProperty("FinalDelivery"),
                                  MinDeliveryDate: element.getProperty("MinDeliveryDate"),
                                  JustMinDeliveryDate: element.getProperty("JustMinDeliveryDate"),
                                  MaxDeliveryDate: element.getProperty("MaxDeliveryDate"),                                 
-                                 JustMaxDeliveryDate: element.getProperty("JustMaxDeliveryDate")
+                                 JustMaxDeliveryDate: element.getProperty("JustMaxDeliveryDate"),
+                                 Location: element.getProperty("Location")
                             });
 
                 });
@@ -309,10 +315,12 @@ sap.ui.define([
                              JustExpectedLoadingDate: "",
                              ExpectedLoadingDateNotes: "",
                              VesselETD: "31/12/9999",
+                             FinalDelivery: "31/12/9999",
                              MinDeliveryDate: "31/12/9999",
                              JustMinDeliveryDate: "",
                              MaxDeliveryDate: "31/12/9999",                                 
-                             JustMaxDeliveryDate: ""
+                             JustMaxDeliveryDate: "",
+                             Location: ""
                     });
             }
 

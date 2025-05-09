@@ -31,17 +31,11 @@ server:
         mountPath: /
         services:
           - urlPath: /sap/opu/odata/sap/ZUI_SD_SO_PLAN
-            generateMockData: true
-            metadataXmlPath: ./webapp/localService/metadata.xml
-            mockdataRootPath: ./webapp/localService/data
-          - urlPath: /sap/opu/odata/sap/ZUI_SD_SO_PLAN/
-            metadataPath: ./webapp/localService/metadata.xml
-            mockdataPath: ./webapp/localService/mockdata
+            metadataPath: ./webapp/localService/mainService/metadata.xml
+            mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
         annotations:
-          - localPath: ./webapp/localService/ZUI_SD_SO_PLAN_VAN.xml
+          - localPath: ./webapp/localService/mainService/ZUI_SD_SO_PLAN_VAN.xml
             urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZUI_SD_SO_PLAN_VAN',Version='0001')/$value/
-          - localPath: ./webapp/annotations/annotation.xml
-            urlPath: annotations/annotation.xml
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
