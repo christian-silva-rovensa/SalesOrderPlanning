@@ -331,6 +331,9 @@
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="OriginalPlant"/>
                                 </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="NumberOfPallets"/>
+                                </Record>
                             </Collection>
                         </PropertyValue>
                         <PropertyValue Property="Label" String="{@i18n>salesOrderItem}"/>

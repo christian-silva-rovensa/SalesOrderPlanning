@@ -41,6 +41,12 @@
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/SalesOrganization">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/SalesGroup">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/SalesGroupName">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/SoldToParty">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
