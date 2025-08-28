@@ -110,7 +110,13 @@
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/productTransfer_ac">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/urgent_ac">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/ConfirmedLoadingDate_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/DisposalDate_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/ExpectedAvailDate_fc">
@@ -132,6 +138,9 @@
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/JustStockAvailDate_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/LabelsStatus_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/LoadingDate_fc">
@@ -280,12 +289,21 @@
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Urgent"/>
+                            <PropertyValue Property="Action" String="cds_zui_sd_so_plan.cds_zui_sd_so_plan_Entities/urgent"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrderItem"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForAction">
                             <PropertyValue Property="Label" String="Loaded"/>
                             <PropertyValue Property="Action" String="cds_zui_sd_so_plan.cds_zui_sd_so_plan_Entities/loaded"/>
                             <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="SalesOrderItem"/>
+                            <PropertyValue Property="Value" Path="Material"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataFieldForAction">
@@ -294,17 +312,13 @@
                             <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="Material"/>
-                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                            <PropertyValue Property="Value" Path="MaterialName"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
                         </Record>
                         <Record Type="UI.DataFieldForAction">
                             <PropertyValue Property="Label" String="Pending to be moved"/>
                             <PropertyValue Property="Action" String="cds_zui_sd_so_plan.cds_zui_sd_so_plan_Entities/pendingToBeMoved"/>
                             <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="MaterialName"/>
-                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="OrderQuantity"/>
