@@ -113,9 +113,12 @@ sap.ui.define([
                               MaxDeliveryDate: salesOrderItem[22],
                               JustMaxDeliveryDate: salesOrderItem[23],
                               Location: salesOrderItem[24],
-                              DisposalDate: salesOrderItem[25] };
+                              DisposalDate: salesOrderItem[25],
+                              LabelsStatus: salesOrderItem[26] };
 
-                aData.push(oData);
+                if(oData.SalesOrder !== undefined) {
+                    aData.push(oData);
+                }
 
             });
 
@@ -150,6 +153,10 @@ sap.ui.define([
                     }else{
                         entity.LoadingTime = "PT00H00M00S";
                     }
+                }
+
+                if(entity.FinalDelivery !== undefined){
+                    entity.FinalDelivery = moment(entity.FinalDelivery).format('YYYY-MM-DDTHH:MM:SS');
                 }
 
                 if(entity.DisposalDate !== undefined){
@@ -187,7 +194,8 @@ sap.ui.define([
                                         StockAvailDateNotes: entity.StockAvailDateNotes,
                                         LoadingDateNotes: entity.LoadingDateNotes,
                                         Location: entity.Location,
-                                        DisposalDate: entity.DisposalDate
+                                        DisposalDate: entity.DisposalDate,
+                                        LabelsStatus: entity.LabelsStatus
                                      };
                 
                 aSalesOrderItems.push(oSalesOrderItem);
@@ -198,6 +206,9 @@ sap.ui.define([
                 //TODO: i18n
                 //this._setCustomMessage("Planning is being updated", "I");
                 MessageToast.show("Planning is being updated");
+            } else {
+                MessageToast.show("No valid entries found");
+                return;
             }
 
             aSalesOrderItems.forEach(entity => {
@@ -295,7 +306,8 @@ sap.ui.define([
                                  MaxDeliveryDate: element.getProperty("MaxDeliveryDate"),                                 
                                  JustMaxDeliveryDate: element.getProperty("JustMaxDeliveryDate"),
                                  Location: element.getProperty("Location"),
-                                 DisposalDate: element.getProperty("DisposalDate")
+                                 DisposalDate: element.getProperty("DisposalDate"),
+                                 LabelsStatus: element.getProperty("LabelsStatus")
                             });
 
                 });
@@ -328,7 +340,9 @@ sap.ui.define([
                              MaxDeliveryDate: "31/12/9999",                                 
                              JustMaxDeliveryDate: "",
                              Location: "",
-                             DisposalDate: "31/12/9999"
+                             DisposalDate: "31/12/9999",
+                             LabelsStatus: ""
+
                     });
             }
 
