@@ -75,6 +75,12 @@
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="LabelsStatus"/>
                                 </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="LabelsJust"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="LabelsDateResolved"/>
+                                </Record>
                             </Collection>
                         </PropertyValue>
                     </Record>
@@ -180,6 +186,12 @@
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="LabelsStatus"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="LabelsJust"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="LabelsDateResolved"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="CockpitReady"/>

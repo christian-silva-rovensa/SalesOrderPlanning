@@ -280,6 +280,7 @@
                     <PropertyRef Name="SalesOrderItem"/>
                 </Key>
                 <Property Name="cockpitReady_ac" Type="Edm.Boolean" sap:label="Ctrl.ação dinâmica" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="labelsResolved_ac" Type="Edm.Boolean" sap:label="Ctrl.ação dinâmica" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="loaded_ac" Type="Edm.Boolean" sap:label="Ctrl.ação dinâmica" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="pendingToBeMoved_ac" Type="Edm.Boolean" sap:label="Ctrl.ação dinâmica" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="productTransfer_ac" Type="Edm.Boolean" sap:label="Ctrl.ação dinâmica" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -293,6 +294,8 @@
                 <Property Name="JustMaxDeliveryDate_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="JustMinDeliveryDate_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="JustStockAvailDate_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LabelsDateResolved_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LabelsJust_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="LabelsStatus_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="LoadingDate_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="LoadingDateNotes_fc" Type="Edm.Byte" sap:label="Controle campo din." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -328,6 +331,7 @@
                 <Property Name="ShipToPartyAddress" Type="Edm.String" MaxLength="300" sap:label="Ship-to Party Address"/>
                 <Property Name="ShipToContact" Type="Edm.String" MaxLength="300" sap:label="Ship-to Party Contact"/>
                 <Property Name="ShipToPartyCountry" Type="Edm.String" MaxLength="50" sap:label="Ship-to Party Country" sap:quickinfo="Denominação do país/da região"/>
+                <Property Name="ShipToAddress" Type="Edm.String" MaxLength="100" sap:label="Ship-to Address" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Criado em" sap:quickinfo="Data de criação do registro" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="DeliveryBlockReason" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Delivery Block" sap:quickinfo="Bloqueio da remessa (cabeçalho do documento)" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="DeliveryBlockReasonText" Type="Edm.String" MaxLength="20" sap:label="Delivery Block Description" sap:quickinfo="Descrição" sap:creatable="false" sap:updatable="false"/>
@@ -374,13 +378,16 @@
                 <Property Name="DisposalDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="DisposalDate_fc" sap:label="CCC-EXW Disposal Date" sap:quickinfo="Disposal Date"/>
                 <Property Name="LabelsStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:field-control="LabelsStatus_fc" sap:label="Labels Status" sap:value-list="standard"/>
                 <Property Name="LabelsStatusDesc" Type="Edm.String" MaxLength="40" sap:label="Labels Status Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LabelsJust" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:field-control="LabelsJust_fc" sap:label="Labels Justification" sap:quickinfo="Label justification" sap:value-list="standard"/>
+                <Property Name="LabelsJustDesc" Type="Edm.String" MaxLength="50" sap:label="Labels Justification Description" sap:quickinfo="Sales Order Planning - Justification description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LabelsDateResolved" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:field-control="LabelsDateResolved_fc" sap:label="(Resolved) Label Date"/>
                 <Property Name="CockpitReady" Type="Edm.String" MaxLength="10" sap:label="Cockpit Ready" sap:quickinfo="Sales Order Planning - Cockpit Ready" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="ProductTransfer" Type="Edm.String" MaxLength="10" sap:label="Product Transfer" sap:quickinfo="Sales Order Planning - Product Transfer" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="Urgent" Type="Edm.String" MaxLength="10" sap:label="Urgent" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="TransportCompany" Type="Edm.String" MaxLength="100" sap:field-control="TransportCompany_fc" sap:label="LOGISTIC - Transport Company" sap:quickinfo="Transport Company"/>
                 <Property Name="TransportPlate" Type="Edm.String" MaxLength="50" sap:field-control="TransportPlate_fc" sap:label="LOGISTIC - Transport Plate" sap:quickinfo="Transport Plate"/>
                 <Property Name="Location" Type="Edm.String" MaxLength="50" sap:display-format="UpperCase" sap:field-control="Location_fc" sap:label="FACTORY - Location" sap:quickinfo="Location" sap:value-list="standard"/>
-                <Property Name="JustStockAvailDateResolved" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="(Resolved) Just. Final Finish Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="JustStockAvailDateResolved" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="(Resolved) Just. Final Finish Date" sap:quickinfo="Just Stock Available Date Resolved" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="ShippingType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Tipo de expedição"/>
                 <Property Name="ShippingTypeText" Type="Edm.String" MaxLength="20" sap:label="Shipping Type Text" sap:quickinfo="Descrição do tipo de expedição"/>
                 <Property Name="IncotermsLocation1" Type="Edm.String" MaxLength="70" sap:label="Local incoterms 1"/>
@@ -766,6 +773,10 @@
                     <End EntitySet="SAP__CoverPageSet" Role="ToRole_to_coverpage"/>
                 </AssociationSet>
                 <FunctionImport Name="cockpitReady" ReturnType="cds_zui_sd_so_plan.PlanningType" EntitySet="Planning" m:HttpMethod="POST" sap:action-for="cds_zui_sd_so_plan.PlanningType" sap:applicable-path="cockpitReady_ac">
+                    <Parameter Name="SalesOrder" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Documento de vendas"/>
+                    <Parameter Name="SalesOrderItem" Type="Edm.String" Mode="In" MaxLength="6" sap:label="Item"/>
+                </FunctionImport>
+                <FunctionImport Name="labelsResolved" ReturnType="cds_zui_sd_so_plan.PlanningType" EntitySet="Planning" m:HttpMethod="POST" sap:action-for="cds_zui_sd_so_plan.PlanningType" sap:applicable-path="labelsResolved_ac">
                     <Parameter Name="SalesOrder" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Documento de vendas"/>
                     <Parameter Name="SalesOrderItem" Type="Edm.String" Mode="In" MaxLength="6" sap:label="Item"/>
                 </FunctionImport>
@@ -1602,6 +1613,26 @@
                     </Record>
                 </Annotation>
             </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/LabelsJust" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="zi_sd_so_plan_just"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="LabelsJust"/>
+                                    <PropertyValue Property="ValueListProperty" String="JustCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="JustDescription"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/Location" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.ValueList">
                     <Record>
@@ -2313,6 +2344,7 @@
                         <PropertyValue Property="NonFilterableProperties">
                             <Collection>
                                 <PropertyPath>cockpitReady_ac</PropertyPath>
+                                <PropertyPath>labelsResolved_ac</PropertyPath>
                                 <PropertyPath>loaded_ac</PropertyPath>
                                 <PropertyPath>pendingToBeMoved_ac</PropertyPath>
                                 <PropertyPath>productTransfer_ac</PropertyPath>
@@ -2326,6 +2358,8 @@
                                 <PropertyPath>JustMaxDeliveryDate_fc</PropertyPath>
                                 <PropertyPath>JustMinDeliveryDate_fc</PropertyPath>
                                 <PropertyPath>JustStockAvailDate_fc</PropertyPath>
+                                <PropertyPath>LabelsDateResolved_fc</PropertyPath>
+                                <PropertyPath>LabelsJust_fc</PropertyPath>
                                 <PropertyPath>LabelsStatus_fc</PropertyPath>
                                 <PropertyPath>LoadingDate_fc</PropertyPath>
                                 <PropertyPath>LoadingDateNotes_fc</PropertyPath>
@@ -2386,6 +2420,7 @@
                         <PropertyValue Property="NonSortableProperties">
                             <Collection>
                                 <PropertyPath>cockpitReady_ac</PropertyPath>
+                                <PropertyPath>labelsResolved_ac</PropertyPath>
                                 <PropertyPath>loaded_ac</PropertyPath>
                                 <PropertyPath>pendingToBeMoved_ac</PropertyPath>
                                 <PropertyPath>productTransfer_ac</PropertyPath>
@@ -2399,6 +2434,8 @@
                                 <PropertyPath>JustMaxDeliveryDate_fc</PropertyPath>
                                 <PropertyPath>JustMinDeliveryDate_fc</PropertyPath>
                                 <PropertyPath>JustStockAvailDate_fc</PropertyPath>
+                                <PropertyPath>LabelsDateResolved_fc</PropertyPath>
+                                <PropertyPath>LabelsJust_fc</PropertyPath>
                                 <PropertyPath>LabelsStatus_fc</PropertyPath>
                                 <PropertyPath>LoadingDate_fc</PropertyPath>
                                 <PropertyPath>LoadingDateNotes_fc</PropertyPath>

@@ -83,6 +83,12 @@
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/JustMaxDeliveryDateT">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/LabelsStatusDesc">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/LabelsJust">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/to_ChangeDocuments">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
@@ -99,6 +105,9 @@
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/cockpitReady_ac">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/labelsResolved_ac">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/loaded_ac">
@@ -138,6 +147,12 @@
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/JustStockAvailDate_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/LabelsDateResolved_fc">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="cds_zui_sd_so_plan.PlanningType/LabelsJust_fc">
                 <Annotation Term="UI.Hidden"/>
             </Annotations>
             <Annotations Target="cds_zui_sd_so_plan.PlanningType/LabelsStatus_fc">
@@ -307,8 +322,8 @@
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                         <Record Type="UI.DataFieldForAction">
-                            <PropertyValue Property="Label" String="Product Transfer"/>
-                            <PropertyValue Property="Action" String="cds_zui_sd_so_plan.cds_zui_sd_so_plan_Entities/productTransfer"/>
+                            <PropertyValue Property="Label" String="Label OK"/>
+                            <PropertyValue Property="Action" String="cds_zui_sd_so_plan.cds_zui_sd_so_plan_Entities/labelsResolved"/>
                             <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
                         </Record>
                         <Record Type="UI.DataField">
@@ -316,13 +331,18 @@
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Low"/>
                         </Record>
                         <Record Type="UI.DataFieldForAction">
-                            <PropertyValue Property="Label" String="Pending to be moved"/>
-                            <PropertyValue Property="Action" String="cds_zui_sd_so_plan.cds_zui_sd_so_plan_Entities/pendingToBeMoved"/>
+                            <PropertyValue Property="Label" String="Product Transfer"/>
+                            <PropertyValue Property="Action" String="cds_zui_sd_so_plan.cds_zui_sd_so_plan_Entities/productTransfer"/>
                             <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="OrderQuantity"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Pending to be moved"/>
+                            <PropertyValue Property="Action" String="cds_zui_sd_so_plan.cds_zui_sd_so_plan_Entities/pendingToBeMoved"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="FirstDate"/>
