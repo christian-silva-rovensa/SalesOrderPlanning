@@ -10,9 +10,9 @@
     ],
     "main": "webapp/index.html",
     "devDependencies": {
-        "@sap-ux/ui5-middleware-fe-mockserver": "^2.3.21",
+        "@sap-ux/ui5-middleware-fe-mockserver": "^2.3.26",
         "@sap/ux-specification": "UI5-1.108",
-        "@sap/ux-ui5-tooling": "^1.19.5",
+        "@sap/ux-ui5-tooling": "^1.20.0",
         "@ui5/cli": "^3.0.0",
         "rimraf": "^5.0.5",
         "ui5-task-flatten-library": "3.0.2"

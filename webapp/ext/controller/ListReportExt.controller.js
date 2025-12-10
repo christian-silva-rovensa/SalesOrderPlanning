@@ -85,7 +85,7 @@ sap.ui.define([
 
             //console.log(raw_data);
 
-            if (raw_data.length < 2){ 
+            if (raw_data.length < 2) { 
                 return;
             }
 
@@ -114,7 +114,8 @@ sap.ui.define([
                               JustMaxDeliveryDate: salesOrderItem[23],
                               Location: salesOrderItem[24],
                               DisposalDate: salesOrderItem[25],
-                              LabelsStatus: salesOrderItem[26] };
+                              LabelsStatus: salesOrderItem[26],
+                              LabelsJust: salesOrderItem[27] };
 
                 if(oData.SalesOrder !== undefined) {
                     aData.push(oData);
@@ -195,7 +196,8 @@ sap.ui.define([
                                         LoadingDateNotes: entity.LoadingDateNotes,
                                         Location: entity.Location,
                                         DisposalDate: entity.DisposalDate,
-                                        LabelsStatus: entity.LabelsStatus
+                                        LabelsStatus: entity.LabelsStatus,
+                                        LabelsJust: entity.LabelsJust
                                      };
                 
                 aSalesOrderItems.push(oSalesOrderItem);
@@ -307,7 +309,8 @@ sap.ui.define([
                                  JustMaxDeliveryDate: element.getProperty("JustMaxDeliveryDate"),
                                  Location: element.getProperty("Location"),
                                  DisposalDate: element.getProperty("DisposalDate"),
-                                 LabelsStatus: element.getProperty("LabelsStatus")
+                                 LabelsStatus: element.getProperty("LabelsStatus"),
+                                 LabelsJust: element.getProperty("LabelsJust")
                             });
 
                 });
@@ -341,7 +344,8 @@ sap.ui.define([
                              JustMaxDeliveryDate: "",
                              Location: "",
                              DisposalDate: "31/12/9999",
-                             LabelsStatus: ""
+                             LabelsStatus: "",
+                             LabelsJust:""
 
                     });
             }
