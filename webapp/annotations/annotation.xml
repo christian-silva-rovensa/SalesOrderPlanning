@@ -31,6 +31,9 @@
                                     <PropertyValue Property="Value" Path="StockAvailDateNotes"/>
                                 </Record>
                                 <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="StockAvailDateResolved"/>
+                                </Record>
+                                <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="JustStockAvailDate"/>
                                 </Record>
                                 <Record Type="UI.DataField">
@@ -65,6 +68,9 @@
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="MaxDeliveryDate"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="MaxDeliveryDateNotes"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="FinalDelivery"/>
@@ -141,17 +147,20 @@
                                     <PropertyValue Property="Value" Path="JustExpectedAvailDate"/>
                                 </Record>
                                 <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="ConfirmedLoadingDate"/>
-                                    <PropertyValue Property="Criticality" Path="LoadingDateChanged"/>
+                                    <PropertyValue Property="Value" Path="StockAvailDate"/>
+                                    <PropertyValue Property="Criticality" Path="StockAvailDateChanged"/>
                                 </Record>
                                 <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="LoadingDateNotes"/>
+                                    <PropertyValue Property="Value" Path="JustStockAvailDate"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="StockAvailDateNotes"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Location"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="DisposalDate"/>
-                                </Record>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="LoadingTime"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="LoadingDate"/>
@@ -160,20 +169,29 @@
                                     <PropertyValue Property="Value" Path="JustLoadingDate"/>
                                 </Record>
                                 <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="StockAvailDate"/>
-                                    <PropertyValue Property="Criticality" Path="StockAvailDateChanged"/>
+                                    <PropertyValue Property="Value" Path="CockpitReady"/>
                                 </Record>
                                 <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="StockAvailDateNotes"/>
+                                    <PropertyValue Property="Value" Path="ProductTransfer"/>
                                 </Record>
                                 <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="JustStockAvailDate"/>
+                                    <PropertyValue Property="Value" Path="ConfirmedLoadingDate"/>
+                                    <PropertyValue Property="Criticality" Path="LoadingDateChanged"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="LoadingTime"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="LoadingDateNotes"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="TransportCompany"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="TransportPlate"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="VesselETD"/>
-                                </Record>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="FinalDelivery"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="MinDeliveryDate"/>
@@ -185,6 +203,21 @@
                                     <PropertyValue Property="Value" Path="JustMaxDeliveryDate"/>
                                 </Record>
                                 <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="MaxDeliveryDateNotes"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="FinalDelivery"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="StockAvailDateResolved"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="JustStockAvailDateResolved"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Urgent"/>
+                                </Record>
+                                <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="LabelsStatus"/>
                                 </Record>
                                 <Record Type="UI.DataField">
@@ -192,27 +225,6 @@
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="LabelsDateResolved"/>
-                                </Record>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="CockpitReady"/>
-                                </Record>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="Urgent"/>
-                                </Record>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="ProductTransfer"/>
-                                </Record>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="TransportCompany"/>
-                                </Record>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="TransportPlate"/>
-                                </Record>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="Location"/>
-                                </Record>
-                                <Record Type="UI.DataField">
-                                    <PropertyValue Property="Value" Path="JustStockAvailDateResolved"/>
                                 </Record>
                               </Collection>
                         </PropertyValue>

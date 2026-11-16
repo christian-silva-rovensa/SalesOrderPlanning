@@ -77,13 +77,11 @@ sap.ui.define([
             const data = await this._file.arrayBuffer();
             
             // SheetJS - https://git.sheetjs.com/sheetjs/sheetjs
-            const workbook = XLSX.read(data);
+            const workbook = XLSX.read(data, {cellDates: true, dateNF:"dd/mm/yyyy"});
 
             const worksheet = workbook.Sheets[workbook.SheetNames[0]];
                 
             const raw_data = XLSX.utils.sheet_to_json(worksheet, {header: 1, raw: false});
-
-            //console.log(raw_data);
 
             if (raw_data.length < 2) { 
                 return;
@@ -126,21 +124,59 @@ sap.ui.define([
             var aSalesOrderItems = [];
 
             aData.forEach(entity => {
-
+                
+                let arrAcceptedDateFormats = ["DD/MM/YYYY","MM/DD/YYYY","DD.MM.YYYY","MM.DD.YYYY","YYYY-MM-DD"];
+                
                 if(entity.ExpectedAvailDate !== undefined){
-                    entity.ExpectedAvailDate = moment(entity.ExpectedAvailDate).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.ExpectedAvailDate, arrAcceptedDateFormats).isValid()){
+                        entity.ExpectedAvailDate = moment(entity.ExpectedAvailDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.ExpectedAvailDate == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.ExpectedAvailDate = null;
+                        }else{
+                            entity.ExpectedAvailDate = undefined;
+                        }
+                    }
                 }
 
                 if(entity.StockAvailDate !== undefined){
-                    entity.StockAvailDate = moment(entity.StockAvailDate).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.StockAvailDate, arrAcceptedDateFormats).isValid()){
+                        entity.StockAvailDate = moment(entity.StockAvailDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.StockAvailDate == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.StockAvailDate = null;
+                        }else{
+                            entity.StockAvailDate = undefined;
+                        }
+                    }
                 }
 
                 if(entity.ConfirmedLoadingDate !== undefined){
-                    entity.ConfirmedLoadingDate = moment(entity.ConfirmedLoadingDate).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.ConfirmedLoadingDate, arrAcceptedDateFormats).isValid()){
+                        entity.ConfirmedLoadingDate = moment(entity.ConfirmedLoadingDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.ConfirmedLoadingDate == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.ConfirmedLoadingDate = null;
+                        }else{
+                            entity.ConfirmedLoadingDate = undefined;
+                        }
+                    }   
                 }
 
                 if(entity.LoadingDate !== undefined){
-                    entity.LoadingDate = moment(entity.LoadingDate).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.LoadingDate, arrAcceptedDateFormats).isValid()){
+                        entity.LoadingDate = moment(entity.LoadingDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.LoadingDate == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.LoadingDate = null;
+                        }else{
+                            entity.LoadingDate = undefined;
+                        }
+                    }
                 }
 
                 if(entity.LoadingTime !== undefined){
@@ -157,23 +193,68 @@ sap.ui.define([
                 }
 
                 if(entity.FinalDelivery !== undefined){
-                    entity.FinalDelivery = moment(entity.FinalDelivery).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.FinalDelivery, arrAcceptedDateFormats).isValid()){
+                        entity.FinalDelivery = moment(entity.FinalDelivery, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.FinalDelivery == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.FinalDelivery = null;
+                        }else{
+                            entity.FinalDelivery = undefined;
+                        }
+                    }
                 }
 
                 if(entity.DisposalDate !== undefined){
-                    entity.DisposalDate = moment(entity.DisposalDate).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.DisposalDate, arrAcceptedDateFormats).isValid()){
+                        entity.DisposalDate = moment(entity.DisposalDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.DisposalDate == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.DisposalDate = null;
+                        }else{
+                            entity.DisposalDate = undefined;
+                        }
+                    }
                 }
 
                 if(entity.VesselETD !== undefined){
-                    entity.VesselETD = moment(entity.VesselETD).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.VesselETD, arrAcceptedDateFormats).isValid()){
+                        entity.VesselETD = moment(entity.VesselETD, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.VesselETD == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.VesselETD = null;
+                        }else{
+                            entity.VesselETD = undefined;
+                        }
+                    }   
                 }
 
                 if(entity.MinDeliveryDate !== undefined){
-                    entity.MinDeliveryDate = moment(entity.MinDeliveryDate).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.MinDeliveryDate, arrAcceptedDateFormats).isValid()){
+                        entity.MinDeliveryDate = moment(entity.MinDeliveryDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.MinDeliveryDate == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.MinDeliveryDate = null;
+                        }else{
+                            entity.MinDeliveryDate = undefined;
+                        }
+                    }
                 }
 
                 if(entity.MaxDeliveryDate !== undefined){
-                    entity.MaxDeliveryDate = moment(entity.MaxDeliveryDate).format('YYYY-MM-DDTHH:MM:SS');
+                    if(moment(entity.MaxDeliveryDate, arrAcceptedDateFormats).isValid()){
+                        entity.MaxDeliveryDate = moment(entity.MaxDeliveryDate, arrAcceptedDateFormats).format('YYYY-MM-DDTHH:MM:SS');
+                    }else{
+                        if(entity.MaxDeliveryDate == '00/00/0000'){
+                            // clears the field value on the backend 
+                            entity.MaxDeliveryDate = null;
+                        }else{
+                            entity.MaxDeliveryDate = undefined;
+                        }
+                    }
                 }
 
                 var oSalesOrderItem = { SalesOrder: entity.SalesOrder, 
@@ -326,24 +407,24 @@ sap.ui.define([
                              OrderQuantityUnit: "",
                              SoldToParty: "",
                              SoldToPartyName: "",
-                             RequestFinishDate: "31/12/9999",
+                             RequestFinishDate: new Date("2099-12-31"),
                              JustRequestFinishDate: "",
-                             FinalFinishDate: "31/12/9999",
+                             FinalFinishDate: new Date("2099-12-31"),
                              JustFinalFinishDate: "",
                              FinalFinishDateNotes: "",
-                             ConfirmedLoadingDate: "31/12/9999",
+                             ConfirmedLoadingDate: new Date("2099-12-31"),
                              ConfirmedLoadingTime: "23:59:59",
-                             ExpectedLoadingDate: "31/12/9999",
+                             ExpectedLoadingDate: new Date("2099-12-31"),
                              JustExpectedLoadingDate: "",
                              ExpectedLoadingDateNotes: "",
-                             VesselETD: "31/12/9999",
-                             FinalDelivery: "31/12/9999",
-                             MinDeliveryDate: "31/12/9999",
+                             VesselETD: new Date("2099-12-31"),
+                             FinalDelivery: new Date("2099-12-31"),
+                             MinDeliveryDate: new Date("2099-12-31"),
                              JustMinDeliveryDate: "",
-                             MaxDeliveryDate: "31/12/9999",                                 
+                             MaxDeliveryDate: new Date("2099-12-31"),                                 
                              JustMaxDeliveryDate: "",
                              Location: "",
-                             DisposalDate: "31/12/9999",
+                             DisposalDate: new Date("2099-12-31"),
                              LabelsStatus: "",
                              LabelsJust:""
 

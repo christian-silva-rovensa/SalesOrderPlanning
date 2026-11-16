@@ -13,6 +13,7 @@ builder:
     - name: deploy-to-abap
       afterTask: generateCachebusterInfo
       configuration:
+        log: 5
         target:
           destination: HSD
           url: http://hsd:443
@@ -24,3 +25,4 @@ builder:
           transport: HDRK901576
         exclude:
           - /test/
+        ignoreCertErrors: true  
